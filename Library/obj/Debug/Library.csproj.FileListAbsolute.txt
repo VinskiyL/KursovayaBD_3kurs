@@ -1,0 +1,15 @@
+C:\Users\katuh\source\repos\Library\bin\Debug\Library.exe.config
+C:\Users\katuh\source\repos\Library\bin\Debug\Library.exe
+C:\Users\katuh\source\repos\Library\bin\Debug\Library.pdb
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Menu.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Properties.Resources.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.csproj.GenerateResource.cache
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.exe
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.pdb
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Readers_form.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Booking_form.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Orders_form.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Books_form.resources
+C:\Users\katuh\source\repos\Library\obj\Debug\Library.Authors_form.resources
