@@ -1,13 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Library
@@ -20,6 +12,19 @@ namespace Library
         Authors authors;
 
         public event Action DataUpdated;
+
+        Authors_books a_b;
+
+        int index = 0;
+
+        public Author_form(int select, Authors authors, int index, Authors_books a_b)
+        {
+            this.select = select;
+            this.authors = authors;
+            this.index = index;
+            this.a_b = a_b;
+            InitializeComponent();
+        }
 
         public Author_form(int select, Authors authors)
         {
@@ -79,6 +84,12 @@ namespace Library
                 string patronymic_ = patronymic.Text;
                 author = new Author(id_, surname_, name_, patronymic_);
                 authors.AddDb(author);
+                if (index != 0)
+                {
+                    int l = a_b.FindMaxId();
+                    Author_book a = new Author_book(l + 1, id_, index);
+                    a_b.AddDb(a);
+                }
             }
 
             DataUpdated?.Invoke();

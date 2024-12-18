@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\books_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:books_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\books_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:books_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\readers_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:readers_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\authors_books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:authors_books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\book_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:book_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\authors_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:authors_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\author_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:author_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\author_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:author_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|c:\\users\\katuh\\desktop\\\u0431\u0434(\u043A\u0443\u0440\u0441\u0430\u0447)\\kursovayabd_3kurs\\library\\authors_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E854E30-FCE6-466A-AE83-46BBCDF42DBF}|Library.csproj|solutionrelative:authors_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,96 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Authors_books.cs",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Authors_books.cs",
-              "RelativeDocumentMoniker": "Authors_books.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Authors_books.cs",
-              "RelativeToolTip": "Authors_books.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAD8AAAAsAAAA",
+              "DocumentIndex": 0,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Reader.cs",
+              "RelativeDocumentMoniker": "Reader.cs",
+              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Reader.cs",
+              "RelativeToolTip": "Reader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:24:08.52Z",
+              "WhenOpened": "2024-12-18T22:06:10.37Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Books_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Books_form.cs",
-              "RelativeDocumentMoniker": "Books_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Books_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Books_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Title": "Readers_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Readers_form.cs",
+              "RelativeDocumentMoniker": "Readers_form.cs",
+              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Readers_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Readers_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T17:56:14.976Z",
+              "WhenOpened": "2024-12-18T19:57:50.984Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Author_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Author_form.cs",
-              "RelativeDocumentMoniker": "Author_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Author_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Author_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T15:33:24.11Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Book_form.cs",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Book_form.cs",
-              "RelativeDocumentMoniker": "Book_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Book_form.cs",
-              "RelativeToolTip": "Book_form.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAYwMEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T15:29:54.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Author_form.cs",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Author_form.cs",
-              "RelativeDocumentMoniker": "Author_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Author_form.cs",
-              "RelativeToolTip": "Author_form.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAAAKYAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T15:18:14.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Books_form.cs",
-              "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Books_form.cs",
-              "RelativeDocumentMoniker": "Books_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Books_form.cs",
-              "RelativeToolTip": "Books_form.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAAAL8AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T08:36:17.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Authors_form.cs",
+              "DocumentIndex": 2,
+              "Title": "Authors_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Authors_form.cs",
               "RelativeDocumentMoniker": "Authors_form.cs",
-              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Authors_form.cs",
-              "RelativeToolTip": "Authors_form.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGwAAAA+AAAA",
+              "ToolTip": "C:\\Users\\katuh\\Desktop\\\u0411\u0414(\u043A\u0443\u0440\u0441\u0430\u0447)\\KursovayaBD_3kurs\\Library\\Authors_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Authors_form.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T07:40:21.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-18T19:57:44.705Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             }
           ]
         }

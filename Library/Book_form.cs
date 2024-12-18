@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Library
 {
@@ -185,8 +178,8 @@ namespace Library
                 books.AddDb(book);
                 if (id != 0)
                 {
-                    int l = a_b.a_b.Count + 1;
-                    Author_book a = new Author_book(l, id, index_);
+                    int l = a_b.FindMaxId();
+                    Author_book a = new Author_book(l + 1, id, index_);
                     a_b.AddDb(a);
                 }
             }

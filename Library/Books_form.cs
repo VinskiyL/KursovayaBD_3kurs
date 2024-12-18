@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Library
 {
@@ -151,7 +144,7 @@ namespace Library
                     readOnlyTextBox.ReadOnly = true;
                     readOnlyTextBox.BorderStyle = BorderStyle.None;
                     readOnlyTextBox.Font = new Font(readOnlyTextBox.Font.FontFamily, 12);
-                    readOnlyTextBox.Text = "Напишите номера книг через запятую и нажмите Enter.";
+                    readOnlyTextBox.Text = "Напишите номера книг через запятую и нажмите Enter";
                     readOnlyTextBox.Size = new Size(535, 30); // Установите размер
                     readOnlyTextBox.Location = new Point(704, 481);
 
@@ -187,15 +180,22 @@ namespace Library
                             {
                                 if (int.TryParse(number.Trim(), out int bookNumber))
                                 {
-                                    if (!a_b.Find(id, bookNumber))
+                                    if (books.Find(bookNumber) != null)
                                     {
-                                        int i = 
-                                        Author_book a = new Author_book(a_b.a_b.Count + 1, id, bookNumber);
-                                        a_b.AddDb(a);
+                                        if (!a_b.Find(id, bookNumber))
+                                        {
+                                            int i = a_b.FindMaxId();
+                                            Author_book a = new Author_book(i + 1, id, bookNumber);
+                                            a_b.AddDb(a);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Книга с индексом " + bookNumber + " была ранее добавлена данному автору");
+                                        }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Книга с индексом " + bookNumber + " была ранее добавлена данному автору");
+                                        MessageBox.Show("Книги с индексом " + bookNumber + " не существует");
                                     }
                                 }
                             }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Library
@@ -32,6 +26,8 @@ namespace Library
             try
             {
                 authors.Add();
+                Books.Enabled = true;
+                textBox2.Text = "Список авторов";
                 if (authors == null)
                 {
                     throw new Exception("Нет информации об авторах");
@@ -47,6 +43,9 @@ namespace Library
                 else
                 {
                     a_b.Add();
+                    textBox2.Text = "Список авторов книги";
+                    textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
+                    Books.Enabled = false;
                     for (int i = 0; i < authors.authors.Count; i++)
                     {
                         if (a_b.Find(authors.authors[i].id, index))
@@ -117,37 +116,191 @@ namespace Library
 
         private void Insert_Click(object sender, EventArgs e)
         {
-            Author_form form = new Author_form(0, authors);
-            form.DataUpdated += DataUpdated;
-            form.Show();
+            if (index != 0)
+            {
+                DialogResult result = MessageBox.Show("Вы хотите добавить уже существующего автора?", "Выбор действия",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    textBox2.Text = "Список авторов, не принадлежащих данной книге";
+                    textBox1.Text = "Напишите идентификаторы авторов в текстовом поле внизу окна";
+                    Update.Enabled = false;
+                    Insert.Enabled = false;
+                    Delete.Enabled = false;
+                    Books.Enabled = false;
+                    dataGridView1.Rows.Clear();
+                    for (int i = 0; i < authors.authors.Count; i++)
+                    {
+                        if (!a_b.Find(authors.authors[i].id, index))
+                        {
+                            dataGridView1.Rows.Add(authors.authors[i].id, authors.authors[i].surname, authors.authors[i].name,
+                                authors.authors[i].patronymic);
+                        }
+                    }
+                    System.Windows.Forms.TextBox readOnlyTextBox = new System.Windows.Forms.TextBox();
+                    readOnlyTextBox.ReadOnly = true;
+                    readOnlyTextBox.BorderStyle = BorderStyle.None;
+                    readOnlyTextBox.Font = new Font(readOnlyTextBox.Font.FontFamily, 12);
+                    readOnlyTextBox.Text = "Напишите идентификаторы авторов через запятую и нажмите Enter";
+                    readOnlyTextBox.Size = new Size(535, 30); // Установите размер
+                    readOnlyTextBox.Location = new Point(704, 481);
+
+                    // Создание второго текстового бокса для ввода
+                    System.Windows.Forms.TextBox inputTextBox = new System.Windows.Forms.TextBox();
+                    inputTextBox.Font = new Font(inputTextBox.Font.FontFamily, 12);
+                    inputTextBox.Size = new Size(535, 30); // Установите размер
+                    inputTextBox.Location = new Point(704, 518);
+                    inputTextBox.ScrollBars = ScrollBars.Horizontal;
+
+                    inputTextBox.KeyPress += (sender0, e0) =>
+                    {
+                        if (!char.IsControl(e0.KeyChar) && !char.IsDigit(e0.KeyChar) && e0.KeyChar != ',')
+                        {
+                            // Если нет, отменяем событие
+                            e0.Handled = true;
+                        }
+                    };
+
+                    // Обработчик события KeyDown для второго текстового бокса
+                    inputTextBox.KeyDown += (sender1, e1) =>
+                    {
+                        if (e1.KeyCode == Keys.Enter)
+                        {
+                            // Логика для обработки введенных данных
+                            string inputText = inputTextBox.Text;
+
+                            // Здесь вы можете добавить код для обработки введенных номеров книг
+                            string[] bookNumbers = inputText.Split(',');
+
+                            // Пример: поиск и добавление книг по введенным номерам
+                            foreach (var number in bookNumbers)
+                            {
+                                if (int.TryParse(number.Trim(), out int authorNumber))
+                                {
+                                    if (authors.Find(authorNumber) != null)
+                                    {
+                                        if (!a_b.Find(authorNumber, index))
+                                        {
+                                            int i = a_b.FindMaxId();
+                                            Author_book a = new Author_book(i + 1, authorNumber, index);
+                                            a_b.AddDb(a);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Автор с идентификатором " + authorNumber + " была ранее добавлен данной книге");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Автора с идентификатором " + authorNumber + " не существует");
+                                    }
+                                }
+                            }
+
+                            // Выход из метода или закрытие формы
+                            DataUpdated();
+                            textBox2.Text = "Список аторов книги";
+                            textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
+                            Update.Enabled = true;
+                            Insert.Enabled = true;
+                            Delete.Enabled = true;
+                            Books.Enabled = true;
+                            this.Controls.Remove(inputTextBox);
+                            this.Controls.Remove(readOnlyTextBox);
+                            return;
+                        }
+                    };
+
+                    // Добавление текстовых боксов на форму
+                    this.Controls.Add(inputTextBox);
+                    this.Controls.Add(readOnlyTextBox);
+                }
+                else if (result == DialogResult.No)
+                {
+                    Author_form form = new Author_form(0, authors, index, a_b);
+                    form.DataUpdated += DataUpdated;
+                    form.Show();
+                }
+            }
+            else
+            {
+                Author_form form = new Author_form(0, authors, index, a_b);
+                form.DataUpdated += DataUpdated;
+                form.Show();
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
             try
             {
-                if (select == 0)
+                DialogResult result;
+                if (index != 0)
                 {
-                    throw new Exception("Строка не выбрана");
-                }
+                    result = MessageBox.Show("Вы хотите удалить  автора только у книги?", "Выбор действия",
+                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        if (select == 0)
+                        {
+                            throw new Exception("Строка не выбрана");
+                        }
 
-                // Запрос подтверждения у пользователя
-                DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить выбранный элемент?",
-                                                      "Подтверждение удаления",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
+                        // Запрос подтверждения у пользователя
+                        result = MessageBox.Show("Вы уверены, что хотите удалить выбранный элемент?",
+                                                              "Подтверждение удаления",
+                                                              MessageBoxButtons.YesNo,
+                                                              MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
-                {
-                    // Выполняем удаление
-                    authors.DelDb(select);
-                    select = 0;
-                    DataUpdated();
+                        if (result == DialogResult.Yes)
+                        {
+                            // Выполняем удаление
+                            authors.DelDb(select);
+                            select = 0;
+                            DataUpdated();
+                        }
+                        else
+                        {
+                            // Пользователь отменил действие
+                            MessageBox.Show("Удаление отменено.");
+                        }
+                    }
+                    else if (result == DialogResult.Yes)
+                    {
+                        if (select == 0)
+                        {
+                            throw new Exception("Строка не выбрана");
+                        }
+                        a_b.DelDb(select, index);
+                        DataUpdated();
+                    }
                 }
                 else
                 {
-                    // Пользователь отменил действие
-                    MessageBox.Show("Удаление отменено.");
+                    if (select == 0)
+                    {
+                        throw new Exception("Строка не выбрана");
+                    }
+
+                    // Запрос подтверждения у пользователя
+                    result = MessageBox.Show("Вы уверены, что хотите удалить выбранный элемент?",
+                                                          "Подтверждение удаления",
+                                                          MessageBoxButtons.YesNo,
+                                                          MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Выполняем удаление
+                        authors.DelDb(select);
+                        select = 0;
+                        DataUpdated();
+                    }
+                    else
+                    {
+                        // Пользователь отменил действие
+                        MessageBox.Show("Удаление отменено.");
+                    }
                 }
             }
             catch (Exception ex)

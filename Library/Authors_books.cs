@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -24,6 +22,13 @@ namespace Library
             else { throw new Exception("Связь автора с книгой не найдена!"); }
         }
 
+        public void Del(int id, int index)
+        {
+            Author_book a = FindII(id, index);
+            if (a != null) { a_b.Remove(a); }
+            else { throw new Exception("Связь автора с книгой не найдена!"); }
+        }
+
         public bool Find(int id, int index)
         {
             return a_b.Any(item => item.author_id == id && item.book_id == index);
@@ -33,6 +38,25 @@ namespace Library
         {
             Author_book ab = a_b.FirstOrDefault(a => a.id == id);
             return ab;
+        }
+
+        public Author_book FindII(int id, int index)
+        {
+            Author_book ab = a_b.FirstOrDefault(a => a.author_id == id && a.book_id == index);
+            return ab;
+        }
+
+        public int FindMaxId()
+        {
+            int max = 0;
+            foreach(Author_book a in a_b)
+            {
+                if(a.id > max)
+                {
+                    max = a.id;
+                }
+            }
+            return max;
         }
 
         public void Add()
@@ -75,7 +99,7 @@ namespace Library
                 connection.Close();
             }
 
-            Del(index);
+            Del(id, index);
         }
 
         public void UpdDb(string set, int index)
