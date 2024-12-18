@@ -65,11 +65,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Author.cs" />
+    <Compile Include="Authors.cs" />
+    <Compile Include="Authors_books.cs" />
     <Compile Include="Authors_form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Authors_form.Designer.cs">
       <DependentUpon>Authors_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Author_book.cs" />
+    <Compile Include="Author_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Author_form.Designer.cs">
+      <DependentUpon>Author_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="Booking_form.cs">
@@ -114,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="Authors_form.resx">
       <DependentUpon>Authors_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Author_form.resx">
+      <DependentUpon>Author_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Booking_form.resx">
       <DependentUpon>Booking_form.cs</DependentUpon>

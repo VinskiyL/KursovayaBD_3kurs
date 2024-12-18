@@ -1,33 +1,38 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Reflection;
-using Npgsql;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Books
+    public class Authors_books
     {
-        public List<Book> books = new List<Book>();
+        public List<Author_book> a_b = new List<Author_book>();
         string connectionString = "Host=localhost;Username=postgres;Password=1234;Database=newDB";
 
-        public void Add(Book b)
+        public void Add(Author_book a)
         {
-            books.Add(b);
+            a_b.Add(a);
         }
 
-        public void Del(int index)
+        public void Del(int id)
         {
-            Book book = Find(index);
-            if (book != null) { books.Remove(book); }
-            else { throw new Exception("Книга не найдена!"); }
+            Author_book a = Find(id);
+            if (a != null) { a_b.Remove(a); }
+            else { throw new Exception("Связь автора с книгой не найдена!"); }
         }
 
-        public Book Find(int index)
+        public bool Find(int id, int index)
         {
-            Book book = books.FirstOrDefault(b => b.index_ == index);
-            return book;
+            return a_b.Any(item => item.author_id == id && item.book_id == index);
+        }
+
+        public Author_book Find(int id)
+        {
+            Author_book ab = a_b.FirstOrDefault(a => a.id == id);
+            return ab;
         }
 
         public void Add()
@@ -36,15 +41,13 @@ namespace Library
             {
                 connection.Open();
 
-                using (var command = new NpgsqlCommand("SELECT * FROM kursovaya.\"Books_catalog\"", connection))
+                using (var command = new NpgsqlCommand("SELECT * FROM kursovaya.\"Authors_Books\"", connection))
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        Book book = new Book(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                            reader.GetString(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7),
-                            reader.IsDBNull(8) ? null : (byte[])reader[8], reader.GetString(9));
-                        Add(book);
+                        Author_book a = new Author_book(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2));
+                        Add(a);
                     }
                 }
 
@@ -52,12 +55,13 @@ namespace Library
             }
         }
 
-        public void DelDb(int index)
+        public void DelDb(int id, int index)
         {
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("DELETE FROM kursovaya.\"Books_catalog\" WHERE index = " + index, connection))
+                using (var command = new NpgsqlCommand("DELETE FROM kursovaya.\"Authors_Books\" WHERE book_id = " + index + 
+                    " and author_id = " + id, connection))
                 {
                     // Выполняем команду
                     int rowsAffected = command.ExecuteNonQuery();
@@ -79,7 +83,7 @@ namespace Library
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("UPDATE kursovaya.\"Books_catalog\" SET " + set + " WHERE index = " + index, connection))
+                using (var command = new NpgsqlCommand("UPDATE kursovaya.\"Authors_Books\" SET " + set + " WHERE id = " + index, connection))
                 {
                     // Выполняем команду
                     int rowsAffected = command.ExecuteNonQuery();
@@ -94,14 +98,13 @@ namespace Library
             }
         }
 
-        public void AddDb(Book book)
+        public void AddDb(Author_book a)
         {
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("INSERT INTO kursovaya.\"Books_catalog\" VALUES( " + book.index_ + ", '" +
-                    book.mark + "', '" + book.title_ + "', '" + book.place + "', '" + book.info + "', " + book.volume_ + ", " +
-                    book.total + ", " + book.now + ", '" + book.cover_ + "', '" + book.date + "' )", connection))
+                using (var command = new NpgsqlCommand("INSERT INTO kursovaya.\"Authors_Books\" VALUES( " + a.id + ", " +
+                    a.author_id + ", " + a.book_id + " )", connection))
                 {
                     // Выполняем команду
                     int rowsAffected = command.ExecuteNonQuery();
@@ -115,7 +118,7 @@ namespace Library
                 connection.Close();
             }
 
-            books.Add(book);
+            a_b.Add(a);
         }
     }
 }

@@ -55,3 +55,4 @@ C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\BC
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\System.Buffers.dll
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\BCrypt.Net-Next.xml
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\System.Buffers.xml
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.Author_form.resources

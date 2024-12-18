@@ -60,6 +60,7 @@
             this.index.Name = "index";
             this.index.Size = new System.Drawing.Size(776, 30);
             this.index.TabIndex = 0;
+            this.index.TextChanged += new System.EventHandler(this.index_TextChanged);
             this.index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.index_KeyPress);
             // 
             // authors_mark
