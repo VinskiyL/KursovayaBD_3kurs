@@ -24,7 +24,7 @@ namespace Library
                 if (reader != null)
                 {
                     // Формируем сообщение
-                    message = $"Фамилия: {reader.surname_}, Имя: {reader.name_}, Отчество: {reader.patronymic_}, Номер телефона: {reader.phone_}, Дата сдачи книги: {booking.return_}";
+                    message = $"Фамилия: {reader.surname_}, Имя: {reader.name_}, Отчество: {reader.patronymic_}, \nНомер телефона: {reader.phone_}, \nДата сдачи книги: {booking.return_}\n";
                     
                 }
 
