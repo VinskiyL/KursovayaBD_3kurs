@@ -59,8 +59,11 @@ namespace Library
                 {
                     while (reader.Read())
                     {
-                        Order o = new Order(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                            reader.GetString(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetString(7));
+                        Order o = new Order(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                            reader.IsDBNull(3) ? null : reader.GetString(3), 
+                            reader.IsDBNull(4) ? null : reader.GetString(4), 
+                            reader.GetInt32(5), reader.GetInt32(6),
+                            reader.IsDBNull(7) ? null : reader.GetString(7));
                         Add(o);
                     }
                 }
