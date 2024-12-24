@@ -296,7 +296,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Book_form";
-            this.Text = "Book_form";
+            this.Text = "Книга";
             this.Load += new System.EventHandler(this.Book_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

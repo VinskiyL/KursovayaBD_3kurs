@@ -38,10 +38,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Update = new System.Windows.Forms.Button();
-            this.Insert = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.Booking = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +58,10 @@
             this.date_issue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.consists_of = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.re_registration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.Button();
+            this.Insert = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Booking = new System.Windows.Forms.Button();
             this.Order = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -149,46 +149,7 @@
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.Size = new System.Drawing.Size(1735, 399);
             this.dataGridView1.TabIndex = 13;
-            // 
-            // Update
-            // 
-            this.Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Update.Location = new System.Drawing.Point(12, 482);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(167, 65);
-            this.Update.TabIndex = 14;
-            this.Update.Text = "Редактировать";
-            this.Update.UseVisualStyleBackColor = true;
-            // 
-            // Insert
-            // 
-            this.Insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Insert.Location = new System.Drawing.Point(185, 482);
-            this.Insert.Name = "Insert";
-            this.Insert.Size = new System.Drawing.Size(167, 65);
-            this.Insert.TabIndex = 15;
-            this.Insert.Text = "Добавить";
-            this.Insert.UseVisualStyleBackColor = true;
-            // 
-            // Delete
-            // 
-            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete.Location = new System.Drawing.Point(358, 482);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(167, 65);
-            this.Delete.TabIndex = 16;
-            this.Delete.Text = "Удалить";
-            this.Delete.UseVisualStyleBackColor = true;
-            // 
-            // Booking
-            // 
-            this.Booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Booking.Location = new System.Drawing.Point(531, 482);
-            this.Booking.Name = "Booking";
-            this.Booking.Size = new System.Drawing.Size(167, 65);
-            this.Booking.TabIndex = 17;
-            this.Booking.Text = "Бронь";
-            this.Booking.UseVisualStyleBackColor = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // id
             // 
@@ -372,6 +333,50 @@
             this.re_registration.ReadOnly = true;
             this.re_registration.Width = 206;
             // 
+            // Update
+            // 
+            this.Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Update.Location = new System.Drawing.Point(12, 482);
+            this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(167, 65);
+            this.Update.TabIndex = 14;
+            this.Update.Text = "Редактировать";
+            this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
+            // 
+            // Insert
+            // 
+            this.Insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Insert.Location = new System.Drawing.Point(185, 482);
+            this.Insert.Name = "Insert";
+            this.Insert.Size = new System.Drawing.Size(167, 65);
+            this.Insert.TabIndex = 15;
+            this.Insert.Text = "Добавить";
+            this.Insert.UseVisualStyleBackColor = true;
+            this.Insert.Click += new System.EventHandler(this.Insert_Click);
+            // 
+            // Delete
+            // 
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Delete.Location = new System.Drawing.Point(358, 482);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(167, 65);
+            this.Delete.TabIndex = 16;
+            this.Delete.Text = "Удалить";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
+            // Booking
+            // 
+            this.Booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Booking.Location = new System.Drawing.Point(531, 482);
+            this.Booking.Name = "Booking";
+            this.Booking.Size = new System.Drawing.Size(167, 65);
+            this.Booking.TabIndex = 17;
+            this.Booking.Text = "Бронь";
+            this.Booking.UseVisualStyleBackColor = true;
+            this.Booking.Click += new System.EventHandler(this.Booking_Click);
+            // 
             // Order
             // 
             this.Order.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -381,6 +386,7 @@
             this.Order.TabIndex = 18;
             this.Order.Text = "Заказ";
             this.Order.UseVisualStyleBackColor = true;
+            this.Order.Click += new System.EventHandler(this.Order_Click);
             // 
             // Readers_form
             // 
@@ -399,6 +405,7 @@
             this.MaximizeBox = false;
             this.Name = "Readers_form";
             this.Text = "Читатели";
+            this.Load += new System.EventHandler(this.Readers_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

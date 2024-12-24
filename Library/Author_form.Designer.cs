@@ -56,6 +56,7 @@
             this.id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.id.Location = new System.Drawing.Point(12, 55);
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Size = new System.Drawing.Size(776, 30);
             this.id.TabIndex = 11;
             this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
@@ -149,7 +150,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Author_form";
-            this.Text = "Author_form";
+            this.Text = "Автор";
             this.Load += new System.EventHandler(this.Author_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

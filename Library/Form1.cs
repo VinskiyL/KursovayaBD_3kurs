@@ -25,7 +25,7 @@ namespace Library
 
         private void Bookings_Click(object sender, EventArgs e)
         {
-            Booking_form form = new Booking_form();
+            Bookings_form form = new Bookings_form();
             form.Show();
         }
 

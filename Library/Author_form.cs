@@ -40,18 +40,6 @@ namespace Library
             {
                 author = authors.Find(select);
                 List<string> set = new List<string>();
-                if (id.Text != select.ToString())
-                {
-                    int id_ = int.Parse(id.Text);
-                    if (authors.Find(id_) != null)
-                    {
-                        MessageBox.Show("Автор с таким идентификатором уже существует!");
-                        id.Focus();
-                        return;
-                    }
-                    set.Add("id = " + id.Text);
-                    author.id = int.Parse(id.Text);
-                }
                 if (surname.Text != author.surname)
                 {
                     set.Add("author_surname = '" + surname.Text + "'");
@@ -73,7 +61,8 @@ namespace Library
             else
             {
                 check_TextBox();
-                int id_ = int.Parse(id.Text);
+                int id_ = authors.FindMaxId() + 1;
+                id.Text = id_.ToString();
                 if (authors.Find(id_) != null)
                 {
                     MessageBox.Show("Автор с таким идентификатором уже существует!");
@@ -93,6 +82,7 @@ namespace Library
             }
 
             DataUpdated?.Invoke();
+            this.Close();
         }
 
         private void Author_form_Load(object sender, EventArgs e)
@@ -109,13 +99,7 @@ namespace Library
 
         private void check_TextBox()
         {
-            if (string.IsNullOrWhiteSpace(id.Text))
-            {
-                MessageBox.Show("Все текстовые поля должны быть заполнены!");
-                id.Focus();
-                return;
-            }
-            else if (string.IsNullOrWhiteSpace(surname.Text))
+            if (string.IsNullOrWhiteSpace(surname.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 surname.Focus();
@@ -145,7 +129,7 @@ namespace Library
 
         private void surname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }

@@ -28,6 +28,19 @@ namespace Library
             return author;
         }
 
+        public int FindMaxId()
+        {
+            int max = 0;
+            foreach (Author b in authors)
+            {
+                if (b.id > max)
+                {
+                    max = b.id;
+                }
+            }
+            return max;
+        }
+
         public void Add()
         {
             using (var connection = new NpgsqlConnection(connectionString))

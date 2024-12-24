@@ -70,6 +70,10 @@ namespace Library
             Book book;
             if (select != 0)
             {
+                if (check_TextBox())
+                {
+                    return;
+                }
                 book = books.Find(select);
                 List<string> set = new List<string>();
                 if (index.Text != select.ToString())
@@ -149,7 +153,10 @@ namespace Library
             }
             else
             {
-                check_TextBox();
+                if (check_TextBox())
+                {
+                    return;
+                }
                 int index_ = int.Parse(index.Text);
                 if(books.Find(index_) != null)
                 {
@@ -184,64 +191,66 @@ namespace Library
                 }
             }
             DataUpdated?.Invoke();
+            this.Close();
         }
 
-        private void check_TextBox()
+        private bool check_TextBox()
         {
             if (string.IsNullOrWhiteSpace(index.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 index.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(authors_mark.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 authors_mark.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(title.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 title.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(place_publication.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 place_publication.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(information_publication.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 information_publication.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(date_publication.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 date_publication.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(volume.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 volume.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(quantity_remaining.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 quantity_remaining.Focus();
-                return;
+                return true;
             }
             else if (string.IsNullOrWhiteSpace(quantity_total.Text))
             {
                 MessageBox.Show("Все текстовые поля должны быть заполнены!");
                 quantity_total.Focus();
-                return;
+                return true;
             }
+            return false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

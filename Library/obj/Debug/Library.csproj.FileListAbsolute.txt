@@ -56,3 +56,15 @@ C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Sy
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\BCrypt.Net-Next.xml
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\System.Buffers.xml
 C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.Author_form.resources
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.Reader_form.resources
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.Bookings_form.resources
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.Order_form.resources
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\obj\Debug\Library.PasswordInput_form.resources
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Quartz.dll
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\Quartz.xml
+C:\Users\katuh\Desktop\БД(курсач)\KursovayaBD_3kurs\Library\bin\Debug\System.Diagnostics.DiagnosticSource.xml
