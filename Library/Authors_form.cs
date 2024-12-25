@@ -124,11 +124,12 @@ namespace Library
                 if (result == DialogResult.Yes)
                 {
                     textBox2.Text = "Список авторов, не принадлежащих данной книге";
-                    textBox1.Text = "Напишите идентификаторы авторов в текстовом поле внизу окна";
+                    textBox1.Text = "Выберите автора из списка ниже и нажмите Enter для добавления.";
                     Update.Enabled = false;
                     Insert.Enabled = false;
                     Delete.Enabled = false;
                     Books.Enabled = false;
+
                     dataGridView1.Rows.Clear();
                     for (int i = 0; i < authors.authors.Count; i++)
                     {
@@ -138,84 +139,54 @@ namespace Library
                                 authors.authors[i].patronymic);
                         }
                     }
-                    System.Windows.Forms.TextBox readOnlyTextBox = new System.Windows.Forms.TextBox();
-                    readOnlyTextBox.ReadOnly = true;
-                    readOnlyTextBox.BorderStyle = BorderStyle.None;
-                    readOnlyTextBox.Font = new Font(readOnlyTextBox.Font.FontFamily, 12);
-                    readOnlyTextBox.Text = "Напишите идентификаторы авторов через запятую и нажмите Enter";
-                    readOnlyTextBox.Size = new Size(535, 30); // Установите размер
-                    readOnlyTextBox.Location = new Point(704, 481);
 
-                    // Создание второго текстового бокса для ввода
-                    System.Windows.Forms.TextBox inputTextBox = new System.Windows.Forms.TextBox();
-                    inputTextBox.Font = new Font(inputTextBox.Font.FontFamily, 12);
-                    inputTextBox.Size = new Size(535, 30); // Установите размер
-                    inputTextBox.Location = new Point(704, 518);
-                    inputTextBox.ScrollBars = ScrollBars.Horizontal;
+                    // Настройка DataGridView
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Полное выделение строки
+                    dataGridView1.MultiSelect = false; // Запрет множественного выделения
 
-                    inputTextBox.KeyPress += (sender0, e0) =>
-                    {
-                        if (!char.IsControl(e0.KeyChar) && !char.IsDigit(e0.KeyChar) && e0.KeyChar != ',')
-                        {
-                            // Если нет, отменяем событие
-                            e0.Handled = true;
-                        }
-                    };
-
-                    // Обработчик события KeyDown для второго текстового бокса
-                    inputTextBox.KeyDown += (sender1, e1) =>
+                    // Обработчик события KeyDown для DataGridView
+                    dataGridView1.KeyDown += (sender1, e1) =>
                     {
                         if (e1.KeyCode == Keys.Enter)
                         {
-                            // Логика для обработки введенных данных
-                            string inputText = inputTextBox.Text;
-
-                            // Здесь вы можете добавить код для обработки введенных номеров книг
-                            string[] bookNumbers = inputText.Split(',');
-
-                            // Пример: поиск и добавление книг по введенным номерам
-                            foreach (var number in bookNumbers)
+                            if (dataGridView1.SelectedRows.Count > 0) // Проверяем, выбрана ли строка
                             {
-                                if (int.TryParse(number.Trim(), out int authorNumber))
+                                var selectedRow = dataGridView1.SelectedRows[0];
+                                int authorNumber = (int)selectedRow.Cells["id"].Value; // Замените "IdColumn" на имя вашего столбца ID
+
+                                if (authors.Find(authorNumber) != null)
                                 {
-                                    if (authors.Find(authorNumber) != null)
+                                    if (!a_b.Find(authorNumber, index))
                                     {
-                                        if (!a_b.Find(authorNumber, index))
-                                        {
-                                            int i = a_b.FindMaxId();
-                                            Author_book a = new Author_book(i + 1, authorNumber, index);
-                                            a_b.AddDb(a);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Автор с идентификатором " + authorNumber + " была ранее добавлен данной книге");
-                                        }
+                                        int i = a_b.FindMaxId();
+                                        Author_book a = new Author_book(i + 1, authorNumber, index);
+                                        a_b.AddDb(a);
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Автора с идентификатором " + authorNumber + " не существует");
+                                        MessageBox.Show("Автор с идентификатором " + authorNumber + " был ранее добавлен данной книге");
                                     }
                                 }
-                            }
+                                else
+                                {
+                                    MessageBox.Show("Автора с идентификатором " + authorNumber + " не существует");
+                                }
 
-                            // Выход из метода или закрытие формы
-                            DataUpdated();
-                            textBox2.Text = "Список аторов книги";
-                            textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
-                            Update.Enabled = true;
-                            Insert.Enabled = true;
-                            Delete.Enabled = true;
-                            Books.Enabled = true;
-                            this.Controls.Remove(inputTextBox);
-                            this.Controls.Remove(readOnlyTextBox);
+                                // Обновление текста и включение кнопок
+                                textBox2.Text = "Список авторов книги";
+                                textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
+                                Update.Enabled = true;
+                                Insert.Enabled = true;
+                                Delete.Enabled = true;
+                                Books.Enabled = true;
+                                DataUpdated();
+                            }
+                            e1.Handled = true; // Отменяем дальнейшую обработку события
                             return;
                         }
                     };
-
-                    // Добавление текстовых боксов на форму
-                    this.Controls.Add(inputTextBox);
-                    this.Controls.Add(readOnlyTextBox);
                 }
+
                 else if (result == DialogResult.No)
                 {
                     Author_form form = new Author_form(0, authors, index, a_b);

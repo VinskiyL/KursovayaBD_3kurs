@@ -38,7 +38,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Update = new System.Windows.Forms.Button();
+            this.Insert = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Reader = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author_surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +51,6 @@
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reader_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_publication = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update = new System.Windows.Forms.Button();
-            this.Insert = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.Reader = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.fio,
             this.title,
             this.author_surname,
             this.author_name,
@@ -109,7 +111,9 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -125,80 +129,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1735, 399);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id.HeaderText = "Идентификатор";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 196;
-            // 
-            // title
-            // 
-            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.title.HeaderText = "Название книги";
-            this.title.MinimumWidth = 6;
-            this.title.Name = "title";
-            this.title.ReadOnly = true;
-            this.title.Width = 168;
-            // 
-            // author_surname
-            // 
-            this.author_surname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.author_surname.HeaderText = "Фамилия автора";
-            this.author_surname.MinimumWidth = 6;
-            this.author_surname.Name = "author_surname";
-            this.author_surname.ReadOnly = true;
-            this.author_surname.Width = 183;
-            // 
-            // author_name
-            // 
-            this.author_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.author_name.HeaderText = "Имя автора";
-            this.author_name.MinimumWidth = 6;
-            this.author_name.Name = "author_name";
-            this.author_name.ReadOnly = true;
-            this.author_name.Width = 139;
-            // 
-            // author_patronimyc
-            // 
-            this.author_patronimyc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.author_patronimyc.HeaderText = "Отчество автора";
-            this.author_patronimyc.MinimumWidth = 6;
-            this.author_patronimyc.Name = "author_patronimyc";
-            this.author_patronimyc.ReadOnly = true;
-            this.author_patronimyc.Width = 184;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.quantity.HeaderText = "Количество";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 152;
-            // 
-            // reader_id
-            // 
-            this.reader_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.reader_id.HeaderText = "Идентификатор читателя";
-            this.reader_id.MinimumWidth = 6;
-            this.reader_id.Name = "reader_id";
-            this.reader_id.ReadOnly = true;
-            this.reader_id.Width = 264;
-            // 
-            // date_publication
-            // 
-            this.date_publication.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.date_publication.HeaderText = "Дата публикации";
-            this.date_publication.MinimumWidth = 6;
-            this.date_publication.Name = "date_publication";
-            this.date_publication.ReadOnly = true;
-            this.date_publication.Width = 185;
             // 
             // Update
             // 
@@ -244,6 +174,90 @@
             this.Reader.UseVisualStyleBackColor = true;
             this.Reader.Click += new System.EventHandler(this.Reader_Click);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id.HeaderText = "Номер заказа";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 171;
+            // 
+            // fio
+            // 
+            this.fio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.fio.HeaderText = "ФИО читателя";
+            this.fio.MinimumWidth = 6;
+            this.fio.Name = "fio";
+            this.fio.ReadOnly = true;
+            this.fio.Width = 168;
+            // 
+            // title
+            // 
+            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.title.HeaderText = "Название книги";
+            this.title.MinimumWidth = 6;
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
+            this.title.Width = 168;
+            // 
+            // author_surname
+            // 
+            this.author_surname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.author_surname.HeaderText = "Фамилия автора";
+            this.author_surname.MinimumWidth = 6;
+            this.author_surname.Name = "author_surname";
+            this.author_surname.ReadOnly = true;
+            this.author_surname.Width = 183;
+            // 
+            // author_name
+            // 
+            this.author_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.author_name.HeaderText = "Имя автора";
+            this.author_name.MinimumWidth = 6;
+            this.author_name.Name = "author_name";
+            this.author_name.ReadOnly = true;
+            this.author_name.Width = 139;
+            // 
+            // author_patronimyc
+            // 
+            this.author_patronimyc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.author_patronimyc.HeaderText = "Отчество автора";
+            this.author_patronimyc.MinimumWidth = 6;
+            this.author_patronimyc.Name = "author_patronimyc";
+            this.author_patronimyc.ReadOnly = true;
+            this.author_patronimyc.Width = 184;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.quantity.HeaderText = "Количество книг";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 180;
+            // 
+            // reader_id
+            // 
+            this.reader_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.reader_id.HeaderText = "Идентификатор читателя";
+            this.reader_id.MinimumWidth = 6;
+            this.reader_id.Name = "reader_id";
+            this.reader_id.ReadOnly = true;
+            this.reader_id.Visible = false;
+            this.reader_id.Width = 264;
+            // 
+            // date_publication
+            // 
+            this.date_publication.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.date_publication.HeaderText = "Дата публикации";
+            this.date_publication.MinimumWidth = 6;
+            this.date_publication.Name = "date_publication";
+            this.date_publication.ReadOnly = true;
+            this.date_publication.Width = 185;
+            // 
             // Orders_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -277,6 +291,7 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Reader;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fio;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn author_surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn author_name;

@@ -11,6 +11,8 @@ namespace Library
         }
 
         Bookings bookings = new Bookings();
+        Readers readers = new Readers();
+        Books books = new Books();
         int id_ = 0;
         int select = 0;
 
@@ -40,6 +42,11 @@ namespace Library
 
         private void Update_Click(object sender, EventArgs e)
         {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => Update_Click(sender, e)));
+                return;
+            }
             try
             {
                 if (select == 0)
@@ -62,9 +69,13 @@ namespace Library
             {
                 for (int i = 0; i < bookings.bookings.Count; i++)
                 {
+                    var book = books.Find(bookings.bookings[i].index_);
+                    var title_ = book.title_;
+                    var reader = readers.Find(bookings.bookings[i].reader);
+                    var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
                     var Value1 = bookings.bookings[i].issued ? bookings.bookings[i].issue.ToString() : "";
                     var Value2 = bookings.bookings[i].returned ? bookings.bookings[i].return_.ToString() : "";
-                    dataGridView1.Rows.Add(bookings.bookings[i].id_, bookings.bookings[i].index_, bookings.bookings[i].reader,
+                    dataGridView1.Rows.Add(bookings.bookings[i].id_, fio_, title_, bookings.bookings[i].index_, bookings.bookings[i].reader,
                         bookings.bookings[i].quantity_, Value1, Value2);
                 }
             }
@@ -74,9 +85,13 @@ namespace Library
                 {
                     if (bookings.FindReader(id_))
                     {
+                        var book = books.Find(bookings.bookings[i].index_);
+                        var title_ = book.title_;
+                        var reader = readers.Find(bookings.bookings[i].reader);
+                        var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
                         var Value1 = bookings.bookings[i].issued ? bookings.bookings[i].issue.ToString() : "";
                         var Value2 = bookings.bookings[i].returned ? bookings.bookings[i].return_.ToString() : "";
-                        dataGridView1.Rows.Add(bookings.bookings[i].id_, bookings.bookings[i].index_, bookings.bookings[i].reader,
+                        dataGridView1.Rows.Add(bookings.bookings[i].id_, fio_, title_, bookings.bookings[i].index_, bookings.bookings[i].reader,
                             bookings.bookings[i].quantity_, Value1, Value2);
                     }
                 }
@@ -130,6 +145,8 @@ namespace Library
             try
             {
                 bookings.Add();
+                readers.Add();
+                books.Add();
                 Reader.Enabled = true;
                 Update.Enabled = true;
                 Insert.Enabled = true;
@@ -143,9 +160,13 @@ namespace Library
                 {
                     for (int i = 0; i < bookings.bookings.Count; i++)
                     {
+                        var book = books.Find(bookings.bookings[i].index_);
+                        var title_ = book.title_;
+                        var reader = readers.Find(bookings.bookings[i].reader);
+                        var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
                         var Value1 = bookings.bookings[i].issued ? bookings.bookings[i].issue.ToString() : "";
                         var Value2 = bookings.bookings[i].returned ? bookings.bookings[i].return_.ToString() : "";
-                        dataGridView1.Rows.Add(bookings.bookings[i].id_, bookings.bookings[i].index_, bookings.bookings[i].reader,
+                        dataGridView1.Rows.Add(bookings.bookings[i].id_, fio_, title_, bookings.bookings[i].index_, bookings.bookings[i].reader,
                             bookings.bookings[i].quantity_, Value1, Value2);
                     }
                 }
@@ -158,9 +179,13 @@ namespace Library
                     {
                         if (bookings.FindReader(id_))
                         {
+                            var book = books.Find(bookings.bookings[i].index_);
+                            var title_ = book.title_;
+                            var reader = readers.Find(bookings.bookings[i].reader);
+                            var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
                             var Value1 = bookings.bookings[i].issued ? bookings.bookings[i].issue.ToString() : "";
                             var Value2 = bookings.bookings[i].returned ? bookings.bookings[i].return_.ToString() : "";
-                            dataGridView1.Rows.Add(bookings.bookings[i].id_, bookings.bookings[i].index_, bookings.bookings[i].reader,
+                            dataGridView1.Rows.Add(bookings.bookings[i].id_, fio_, title_, bookings.bookings[i].index_, bookings.bookings[i].reader,
                                 bookings.bookings[i].quantity_, Value1, Value2);
                         }
                     }

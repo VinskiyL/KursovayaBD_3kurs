@@ -50,24 +50,26 @@ namespace Library
                     set.Add("author_name = '" + name.Text + "'");
                     author.name = name.Text;
                 }
-                if (patronymic.Text != author.patronymic)
+                if (author.patronymic == null && (patronymic.Text != "" || patronymic.Text != null))
                 {
                     set.Add("author_patronymic = '" + patronymic.Text + "'");
                     author.patronymic = patronymic.Text;
                 }
-                string result = string.Join(", ", set);
-                authors.UpdDb(result, select);
+                else if (patronymic.Text != author.patronymic)
+                {
+                    set.Add("author_patronymic = '" + patronymic.Text + "'");
+                    author.patronymic = patronymic.Text;
+                }
+                if (set.Count > 0)
+                {
+                    string result = string.Join(", ", set);
+                    authors.UpdDb(result, select);
+                }
             }
             else
             {
                 check_TextBox();
                 int id_ = authors.FindMaxId() + 1;
-                id.Text = id_.ToString();
-                if (authors.Find(id_) != null)
-                {
-                    MessageBox.Show("Автор с таким идентификатором уже существует!");
-                    id.Focus();
-                }
                 string surname_ = surname.Text;
                 string name_ = name.Text;
                 string patronymic_ = patronymic.Text;
@@ -90,7 +92,6 @@ namespace Library
             if (select != 0)
             {
                 Author author = authors.Find(select);
-                id.Text = select.ToString();
                 surname.Text = author.surname;
                 name.Text = author.name;
                 patronymic.Text = author.patronymic;
@@ -119,14 +120,6 @@ namespace Library
             }
         }
 
-        private void id_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void surname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ')
@@ -148,19 +141,6 @@ namespace Library
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void id_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(id.Text, out int value1))
-            {
-                if (value1 <= 0)
-                {
-                    MessageBox.Show("Значение в поле 'Идентификатор' должно быть целым числом больше нуля");
-                    id.Text = ""; // Сбрасываем значение
-                    id.Focus(); // Перемещаем фокус на первый TextBox
-                }
             }
         }
     }

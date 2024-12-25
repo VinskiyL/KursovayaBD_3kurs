@@ -33,7 +33,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.title = new System.Windows.Forms.TextBox();
@@ -41,10 +40,11 @@
             this.author_name = new System.Windows.Forms.TextBox();
             this.author_patronymic = new System.Windows.Forms.TextBox();
             this.quantity = new System.Windows.Forms.TextBox();
-            this.reader_id = new System.Windows.Forms.TextBox();
             this.date_publication = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.fio = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -89,18 +89,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(776, 23);
             this.textBox4.TabIndex = 18;
-            this.textBox4.Text = "Количество";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(12, 337);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(776, 23);
-            this.textBox5.TabIndex = 19;
-            this.textBox5.Text = "Идентификатор читателя";
+            this.textBox4.Text = "Количество книг";
             // 
             // textBox6
             // 
@@ -168,15 +157,6 @@
             this.quantity.TabIndex = 26;
             this.quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_KeyPress);
             // 
-            // reader_id
-            // 
-            this.reader_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.reader_id.Location = new System.Drawing.Point(12, 366);
-            this.reader_id.Name = "reader_id";
-            this.reader_id.Size = new System.Drawing.Size(776, 30);
-            this.reader_id.TabIndex = 27;
-            this.reader_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.reader_id_KeyPress);
-            // 
             // date_publication
             // 
             this.date_publication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -208,15 +188,37 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // fio
+            // 
+            this.fio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fio.FormattingEnabled = true;
+            this.fio.Location = new System.Drawing.Point(12, 366);
+            this.fio.Name = "fio";
+            this.fio.Size = new System.Drawing.Size(776, 33);
+            this.fio.TabIndex = 34;
+            this.fio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fio_KeyPress);
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox8.Location = new System.Drawing.Point(12, 337);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(776, 23);
+            this.textBox8.TabIndex = 35;
+            this.textBox8.Text = "ФИО читателя";
+            // 
             // Order_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 546);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.fio);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.date_publication);
-            this.Controls.Add(this.reader_id);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.author_patronymic);
             this.Controls.Add(this.author_name);
@@ -224,7 +226,6 @@
             this.Controls.Add(this.title);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -245,7 +246,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox title;
@@ -253,9 +253,10 @@
         private System.Windows.Forms.TextBox author_name;
         private System.Windows.Forms.TextBox author_patronymic;
         private System.Windows.Forms.TextBox quantity;
-        private System.Windows.Forms.TextBox reader_id;
         private System.Windows.Forms.TextBox date_publication;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox fio;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

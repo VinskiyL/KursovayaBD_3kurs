@@ -21,7 +21,6 @@ namespace Library
             // Запуск графического интерфейса
             Application.Run(new Menu());
 
-            Console.ReadKey();
         }
     }
 }

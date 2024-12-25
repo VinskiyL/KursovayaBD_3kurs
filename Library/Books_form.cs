@@ -126,98 +126,70 @@ namespace Library
                 if (result == DialogResult.Yes)
                 {
                     textBox2.Text = "Список книг, не принадлежащих данному автору";
-                    textBox1.Text = "Напишите индексы книг в текстовом поле внизу окна";
+                    textBox1.Text = "Выберите книгу из списка ниже и нажмите Enter для добавления.";
                     Update.Enabled = false;
                     Insert.Enabled = false;
                     Delete.Enabled = false;
                     Authors.Enabled = false;
+
                     dataGridView1.Rows.Clear();
                     for (int i = 0; i < books.books.Count; i++)
                     {
                         if (!a_b.Find(id, books.books[i].index_))
                         {
-                            dataGridView1.Rows.Add(books.books[i].index_, books.books[i].mark, books.books[i].title_, books.books[i].place,
-                                books.books[i].info, books.books[i].date, books.books[i].volume_, books.books[i].total, books.books[i].now);
+                            dataGridView1.Rows.Add(books.books[i].index_, books.books[i].mark, books.books[i].title_,
+                                books.books[i].place, books.books[i].info, books.books[i].date,
+                                books.books[i].volume_, books.books[i].total, books.books[i].now);
                         }
                     }
-                    System.Windows.Forms.TextBox readOnlyTextBox = new System.Windows.Forms.TextBox();
-                    readOnlyTextBox.ReadOnly = true;
-                    readOnlyTextBox.BorderStyle = BorderStyle.None;
-                    readOnlyTextBox.Font = new Font(readOnlyTextBox.Font.FontFamily, 12);
-                    readOnlyTextBox.Text = "Напишите номера книг через запятую и нажмите Enter";
-                    readOnlyTextBox.Size = new Size(535, 30); // Установите размер
-                    readOnlyTextBox.Location = new Point(704, 481);
 
-                    // Создание второго текстового бокса для ввода
-                    System.Windows.Forms.TextBox inputTextBox = new System.Windows.Forms.TextBox();
-                    inputTextBox.Font = new Font(inputTextBox.Font.FontFamily, 12);
-                    inputTextBox.Size = new Size(535, 30); // Установите размер
-                    inputTextBox.Location = new Point(704, 518);
-                    inputTextBox.ScrollBars = ScrollBars.Horizontal;
+                    // Настройка DataGridView
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Полное выделение строки
+                    dataGridView1.MultiSelect = false; // Запрет множественного выделения
 
-                    inputTextBox.KeyPress += (sender0, e0) =>
-                    {
-                        if (!char.IsControl(e0.KeyChar) && !char.IsDigit(e0.KeyChar) && e0.KeyChar != ',')
-                        {
-                            // Если нет, отменяем событие
-                            e0.Handled = true;
-                        }
-                    };
-
-                    // Обработчик события KeyDown для второго текстового бокса
-                    inputTextBox.KeyDown += (sender1, e1) =>
+                    // Обработчик события KeyDown для DataGridView
+                    dataGridView1.KeyDown += (sender1, e1) =>
                     {
                         if (e1.KeyCode == Keys.Enter)
                         {
-                            // Логика для обработки введенных данных
-                            string inputText = inputTextBox.Text;
-
-                            // Здесь вы можете добавить код для обработки введенных номеров книг
-                            string[] bookNumbers = inputText.Split(',');
-
-                            // Пример: поиск и добавление книг по введенным номерам
-                            foreach (var number in bookNumbers)
+                            if (dataGridView1.SelectedRows.Count > 0) // Проверяем, выбрана ли строка
                             {
-                                if (int.TryParse(number.Trim(), out int bookNumber))
+                                var selectedRow = dataGridView1.SelectedRows[0];
+                                int bookNumber = (int)selectedRow.Cells["index"].Value; // Замените "IndexColumn" на имя вашего столбца индекса
+
+                                if (books.Find(bookNumber) != null)
                                 {
-                                    if (books.Find(bookNumber) != null)
+                                    if (!a_b.Find(id, bookNumber))
                                     {
-                                        if (!a_b.Find(id, bookNumber))
-                                        {
-                                            int i = a_b.FindMaxId();
-                                            Author_book a = new Author_book(i + 1, id, bookNumber);
-                                            a_b.AddDb(a);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Книга с индексом " + bookNumber + " была ранее добавлена данному автору");
-                                        }
+                                        int i = a_b.FindMaxId();
+                                        Author_book a = new Author_book(i + 1, id, bookNumber);
+                                        a_b.AddDb(a);
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Книги с индексом " + bookNumber + " не существует");
+                                        MessageBox.Show("Книга с индексом " + bookNumber + " была ранее добавлена данному автору");
                                     }
                                 }
-                            }
+                                else
+                                {
+                                    MessageBox.Show("Книги с индексом " + bookNumber + " не существует");
+                                }
 
-                            // Выход из метода или закрытие формы
-                            DataUpdated();
-                            textBox2.Text = "Список книг автора";
-                            textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
-                            Update.Enabled = true;
-                            Insert.Enabled = true;
-                            Delete.Enabled = true;
-                            Authors.Enabled = true;
-                            this.Controls.Remove(inputTextBox);
-                            this.Controls.Remove(readOnlyTextBox);
+                                // Обновление текста и включение кнопок
+                                textBox2.Text = "Список книг автора";
+                                textBox1.Text = "Для редактирования записи в таблице кликните на любой элемент строки, а затем по нужной кнопке";
+                                Update.Enabled = true;
+                                Insert.Enabled = true;
+                                Delete.Enabled = true;
+                                Authors.Enabled = true;
+                                DataUpdated();
+                            }
+                            e1.Handled = true; // Отменяем дальнейшую обработку события
                             return;
                         }
                     };
-
-                    // Добавление текстовых боксов на форму
-                    this.Controls.Add(inputTextBox);
-                    this.Controls.Add(readOnlyTextBox);
                 }
+
                 else if (result == DialogResult.No)
                 {
                     // Действия для создания новой книги

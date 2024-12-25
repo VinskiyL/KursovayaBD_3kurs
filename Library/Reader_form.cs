@@ -28,7 +28,6 @@ namespace Library
             if (select != 0)
             {
                 Reader reader = readers.Find(select);
-                id.Text = select.ToString();
                 surname.Text = reader.surname_;
                 name.Text = reader.name_;
                 patronymic.Text = reader.patronymic_;
@@ -172,13 +171,15 @@ namespace Library
                     set.Add("re_registration = '" + reader.re + "'");
                    
                 }
-                string result = string.Join(", ", set);
-                readers.UpdDb(result, select);
+                if (set.Count > 0)
+                {
+                    string result = string.Join(", ", set);
+                    readers.UpdDb(result, select);
+                }
             }
             else
             {
                 int index_ = readers.FindMaxId() + 1;
-                id.Text = index_.ToString();
                 if (check_TextBox())
                 {
                     return;

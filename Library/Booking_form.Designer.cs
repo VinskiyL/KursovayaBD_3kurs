@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking_form));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.index = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.reader_id = new System.Windows.Forms.TextBox();
             this.date_issue = new System.Windows.Forms.TextBox();
             this.quantity = new System.Windows.Forms.TextBox();
             this.date_return = new System.Windows.Forms.TextBox();
@@ -46,27 +42,11 @@
             this.returned = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fio = new System.Windows.Forms.ComboBox();
+            this.title = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(776, 23);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Text = "Индекс книги";
-            // 
-            // index
-            // 
-            this.index.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.index.Location = new System.Drawing.Point(12, 41);
-            this.index.Name = "index";
-            this.index.Size = new System.Drawing.Size(776, 30);
-            this.index.TabIndex = 15;
-            this.index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.index_KeyPress);
             // 
             // textBox3
             // 
@@ -77,7 +57,7 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(776, 23);
             this.textBox3.TabIndex = 16;
-            this.textBox3.Text = "Количество";
+            this.textBox3.Text = "Количество книг";
             // 
             // textBox4
             // 
@@ -99,7 +79,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(776, 23);
             this.textBox5.TabIndex = 18;
-            this.textBox5.Text = "Дата получения";
+            this.textBox5.Text = "Дата запланированного получения";
             // 
             // textBox6
             // 
@@ -110,7 +90,7 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(776, 23);
             this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "Дата возврата";
+            this.textBox6.Text = "Дата запланированного возврата";
             // 
             // textBox7
             // 
@@ -122,26 +102,6 @@
             this.textBox7.Size = new System.Drawing.Size(776, 23);
             this.textBox7.TabIndex = 20;
             this.textBox7.Text = "Возвращена";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox8.Location = new System.Drawing.Point(12, 77);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(776, 23);
-            this.textBox8.TabIndex = 21;
-            this.textBox8.Text = "Идентификатор читателя";
-            // 
-            // reader_id
-            // 
-            this.reader_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.reader_id.Location = new System.Drawing.Point(12, 106);
-            this.reader_id.Name = "reader_id";
-            this.reader_id.Size = new System.Drawing.Size(776, 30);
-            this.reader_id.TabIndex = 24;
-            this.reader_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.reader_id_KeyPress);
             // 
             // date_issue
             // 
@@ -225,11 +185,54 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox8.Location = new System.Drawing.Point(12, 77);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(776, 23);
+            this.textBox8.TabIndex = 21;
+            this.textBox8.Text = "ФИО читателя";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(776, 23);
+            this.textBox1.TabIndex = 14;
+            this.textBox1.Text = "Название книги";
+            // 
+            // fio
+            // 
+            this.fio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fio.FormattingEnabled = true;
+            this.fio.Location = new System.Drawing.Point(12, 106);
+            this.fio.Name = "fio";
+            this.fio.Size = new System.Drawing.Size(776, 33);
+            this.fio.TabIndex = 33;
+            this.fio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fio_KeyPress_1);
+            // 
+            // title
+            // 
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.FormattingEnabled = true;
+            this.title.Location = new System.Drawing.Point(12, 41);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(776, 33);
+            this.title.TabIndex = 34;
+            // 
             // Booking_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 547);
+            this.Controls.Add(this.title);
+            this.Controls.Add(this.fio);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.returned);
@@ -238,14 +241,12 @@
             this.Controls.Add(this.date_return);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.date_issue);
-            this.Controls.Add(this.reader_id);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.index);
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -258,15 +259,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox index;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox reader_id;
         private System.Windows.Forms.TextBox date_issue;
         private System.Windows.Forms.TextBox quantity;
         private System.Windows.Forms.TextBox date_return;
@@ -275,5 +272,9 @@
         private System.Windows.Forms.CheckBox returned;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox fio;
+        private System.Windows.Forms.ComboBox title;
     }
 }

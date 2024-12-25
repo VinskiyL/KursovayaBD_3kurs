@@ -134,7 +134,9 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(12, 77);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -156,11 +158,11 @@
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id.HeaderText = "Идентификатор";
+            this.id.HeaderText = "Номер читательского билета";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 196;
+            this.id.Width = 290;
             // 
             // surname
             // 
@@ -421,6 +423,7 @@
         private System.Windows.Forms.Button Insert;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Booking;
+        private System.Windows.Forms.Button Order;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -441,6 +444,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn date_issue;
         private System.Windows.Forms.DataGridViewTextBoxColumn consists_of;
         private System.Windows.Forms.DataGridViewTextBoxColumn re_registration;
-        private System.Windows.Forms.Button Order;
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Library
@@ -148,8 +150,11 @@ namespace Library
                         }
                     }
                 }
-                string result = string.Join(", ", set);
-                books.UpdDb(result, select);
+                if (set.Count > 0)
+                {
+                    string result = string.Join(", ", set);
+                    books.UpdDb(result, select);
+                }
             }
             else
             {
@@ -255,18 +260,56 @@ namespace Library
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-                openFileDialog.Title = "Выберите изображение";
+            // Запускаем новый поток для выполнения задачи
+            Thread thread = new Thread(OpenFileDialogAndSetImage);
+            thread.SetApartmentState(ApartmentState.STA); // Устанавливаем STA
+            thread.Start(); // Запускаем поток
+        }
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+        private void OpenFileDialogAndSetImage()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Выберите изображение";
+
+            try
+            {
+                DialogResult result = openFileDialog.ShowDialog(); // Показываем диалог выбора файла
+
+                if (result == DialogResult.OK)
                 {
-                    // Загружаем изображение в PictureBox
-                    pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+                    // Создаем Bitmap в UI-потоке
+                    Bitmap newImage = new Bitmap(openFileDialog.FileName);
+
+                    // Используем Invoke для обновления PictureBox на основном потоке
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        // Освобождаем старое изображение, если оно существует
+                        if (pictureBox1.Image != null)
+                        {
+                            pictureBox1.Image.Dispose();
+                        }
+
+                        // Устанавливаем новое изображение
+                        pictureBox1.Image = newImage;
+                    });
                 }
             }
+            catch (Exception ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                });
+            }
+            finally
+            {
+                // Явно освобождаем ресурсы OpenFileDialog
+                openFileDialog.Dispose();
+            }
         }
+
+
 
         private void index_KeyPress(object sender, KeyPressEventArgs e)
         {

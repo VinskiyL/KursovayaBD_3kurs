@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book_form));
-            this.index = new System.Windows.Forms.TextBox();
             this.authors_mark = new System.Windows.Forms.TextBox();
             this.title = new System.Windows.Forms.TextBox();
             this.place_publication = new System.Windows.Forms.TextBox();
@@ -38,7 +37,6 @@
             this.volume = new System.Windows.Forms.TextBox();
             this.quantity_total = new System.Windows.Forms.TextBox();
             this.quantity_remaining = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -50,18 +48,10 @@
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.index = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // index
-            // 
-            this.index.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.index.Location = new System.Drawing.Point(12, 63);
-            this.index.Name = "index";
-            this.index.Size = new System.Drawing.Size(776, 30);
-            this.index.TabIndex = 0;
-            this.index.TextChanged += new System.EventHandler(this.index_TextChanged);
-            this.index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.index_KeyPress);
             // 
             // authors_mark
             // 
@@ -134,17 +124,6 @@
             this.quantity_remaining.TabIndex = 8;
             this.quantity_remaining.TextChanged += new System.EventHandler(this.quantity_remaining_TextChanged);
             this.quantity_remaining.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantity_remaining_KeyPress);
-            // 
-            // textBox10
-            // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox10.Location = new System.Drawing.Point(12, 35);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(776, 23);
-            this.textBox10.TabIndex = 9;
-            this.textBox10.Text = "Индекс";
             // 
             // textBox11
             // 
@@ -267,6 +246,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // index
+            // 
+            this.index.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.index.Location = new System.Drawing.Point(12, 63);
+            this.index.Name = "index";
+            this.index.Size = new System.Drawing.Size(776, 30);
+            this.index.TabIndex = 0;
+            this.index.TextChanged += new System.EventHandler(this.index_TextChanged);
+            this.index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.index_KeyPress);
+            // 
+            // textBox10
+            // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox10.Location = new System.Drawing.Point(12, 35);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(776, 23);
+            this.textBox10.TabIndex = 9;
+            this.textBox10.Text = "Индекс";
+            // 
             // Book_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -305,8 +305,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox index;
         private System.Windows.Forms.TextBox authors_mark;
         private System.Windows.Forms.TextBox title;
         private System.Windows.Forms.TextBox place_publication;
@@ -315,7 +313,6 @@
         private System.Windows.Forms.TextBox volume;
         private System.Windows.Forms.TextBox quantity_total;
         private System.Windows.Forms.TextBox quantity_remaining;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
@@ -327,5 +324,7 @@
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox index;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }

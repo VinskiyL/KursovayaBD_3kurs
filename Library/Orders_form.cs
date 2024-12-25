@@ -10,7 +10,8 @@ namespace Library
             InitializeComponent();
         }
 
-        Orders orders = new Orders(); 
+        Orders orders = new Orders();
+        Readers readers = new Readers();
         int id_ = 0;
         int select = 0;
 
@@ -25,6 +26,7 @@ namespace Library
             try
             {
                 orders.Add();
+                readers.Add();
                 Reader.Enabled = true;
                 Update.Enabled = true;
                 Insert.Enabled = true;
@@ -38,8 +40,10 @@ namespace Library
                 {
                     for (int i = 0; i < orders.orders.Count; i++)
                     {
-                        dataGridView1.Rows.Add(orders.orders[i].id_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
-                            orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
+                        var reader = readers.Find(orders.orders[i].reader);
+                        var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
+                        dataGridView1.Rows.Add(orders.orders[i].id_, fio_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
+                                orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
                     }
                 }
                 else
@@ -51,8 +55,10 @@ namespace Library
                     {
                         if (orders.FindReader(id_))
                         {
-                            dataGridView1.Rows.Add(orders.orders[i].id_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
-                            orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
+                            var reader = readers.Find(orders.orders[i].reader);
+                            var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
+                            dataGridView1.Rows.Add(orders.orders[i].id_, fio_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
+                                    orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
                         }
                     }
                 }
@@ -123,7 +129,9 @@ namespace Library
             {
                 for (int i = 0; i < orders.orders.Count; i++)
                 {
-                    dataGridView1.Rows.Add(orders.orders[i].id_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
+                    var reader = readers.Find(orders.orders[i].reader);
+                    var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
+                    dataGridView1.Rows.Add(orders.orders[i].id_, fio_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
                             orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
                 }
             }
@@ -133,8 +141,10 @@ namespace Library
                 {
                     if (orders.FindReader(id_))
                     {
-                        dataGridView1.Rows.Add(orders.orders[i].id_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
-                            orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
+                        var reader = readers.Find(orders.orders[i].reader);
+                        var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
+                        dataGridView1.Rows.Add(orders.orders[i].id_, fio_, orders.orders[i].title_, orders.orders[i].surname, orders.orders[i].name,
+                                orders.orders[i].patronymic, orders.orders[i].quantity_, orders.orders[i].reader, orders.orders[i].date);
                     }
                 }
             }
