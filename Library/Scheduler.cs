@@ -19,7 +19,7 @@ namespace Library
                 .WithIdentity("BookDebtorsTrigger", "group1")
                 .StartNow()
                 //.WithSchedule(CronScheduleBuilder.CronSchedule("0 0/5 * * * ?"))//5min
-                .WithSchedule(CronScheduleBuilder.CronSchedule("0 0 12 ? * THU"))
+                .WithSchedule(CronScheduleBuilder.CronSchedule("0 0 12 ? * FRI"))
                 .Build();
 
             await scheduler.ScheduleJob(job, trigger);

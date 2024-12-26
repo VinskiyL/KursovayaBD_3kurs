@@ -83,7 +83,7 @@ namespace Library
                     int index_ = int.Parse(index.Text);
                     if (books.Find(index_) != null)
                     {
-                        MessageBox.Show("Книга с таким идексом уже существует!");
+                        MessageBox.Show("Книга с таким идексом уже существует! Пожалуйста измените индекс книги или внесите изменения в книгу с данным индексом");
                         index.Focus();
                         return;
                     }
@@ -165,7 +165,7 @@ namespace Library
                 int index_ = int.Parse(index.Text);
                 if(books.Find(index_) != null)
                 {
-                    MessageBox.Show("Книга с таким индексом уже существует!");
+                    MessageBox.Show("Книга с таким индексом уже существует! Пожалуйста измените индекс книги или внесите изменения в книгу с данным индексом");
                     index.Focus();
                 }
                 string mark = authors_mark.Text;
@@ -299,7 +299,7 @@ namespace Library
             {
                 this.Invoke((MethodInvoker)delegate
                 {
-                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ошибка: {ex.Message} \nДля решения этой проблемы свяжитесь со специалистом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 });
             }
             finally
@@ -381,7 +381,7 @@ namespace Library
             {
                 if (value1 > value2)
                 {
-                    MessageBox.Show("Значение в поле 'Сейчас книг' не должно превышать значение в поле 'Всего книг'");
+                    MessageBox.Show("Значение в поле 'Сейчас книг' не должно превышать значение в поле 'Всего книг'!");
                     quantity_remaining.Text = ""; // Сбрасываем значение
                     quantity_remaining.Focus(); // Перемещаем фокус на первый TextBox
                 }
@@ -394,7 +394,7 @@ namespace Library
             {
                 if (value1 <= 0)
                 {
-                    MessageBox.Show("Значение поля 'Индекс' должно быть целым числом больше нуля");
+                    MessageBox.Show("Значение поля 'Индекс' должно быть целым числом больше нуля!");
                     index.Text = ""; // Сбрасываем значение
                     index.Focus(); // Перемещаем фокус на первый TextBox
                 }

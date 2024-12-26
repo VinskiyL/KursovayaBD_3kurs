@@ -19,7 +19,7 @@ namespace Library
         {
             Reader r = Find(id);
             if (r != null) { readers.Remove(r); }
-            else { throw new Exception("Читатель не найден!"); }
+            else { throw new Exception("Читатель не найден! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public Reader Find(int id)
@@ -77,7 +77,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -99,7 +99,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -127,7 +127,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

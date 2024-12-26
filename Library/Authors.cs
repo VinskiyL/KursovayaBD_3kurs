@@ -19,7 +19,7 @@ namespace Library
         {
             Author author = Find(id);
             if (author != null) { authors.Remove(author); }
-            else { throw new Exception("Автор не найден!"); }
+            else { throw new Exception("Автор не найден! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public Author Find(int id)
@@ -73,7 +73,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -95,7 +95,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -116,7 +116,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

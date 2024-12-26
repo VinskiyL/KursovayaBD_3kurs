@@ -19,14 +19,14 @@ namespace Library
         {
             Author_book a = Find(id);
             if (a != null) { a_b.Remove(a); }
-            else { throw new Exception("Связь автора с книгой не найдена!"); }
+            else { throw new Exception("Связь автора с книгой не найдена! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public void Del(int id, int index)
         {
             Author_book a = FindII(id, index);
             if (a != null) { a_b.Remove(a); }
-            else { throw new Exception("Связь автора с книгой не найдена!"); }
+            else { throw new Exception("Связь автора с книгой не найдена! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public bool Find(int id, int index)
@@ -92,7 +92,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -114,7 +114,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -135,7 +135,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

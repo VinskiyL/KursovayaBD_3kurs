@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -17,9 +15,9 @@ namespace Library
             orders.Add(o);
         }
 
-        public bool FindReader(int reader)
+        public bool FindReader(int reader, int id)
         {
-            return orders.Any(item => item.reader == reader);
+            return orders.Any(item => item.reader == reader && item.id_ == id);
         }
 
         public int FindMaxId()
@@ -39,7 +37,7 @@ namespace Library
         {
             Order o = Find(id);
             if (o != null) { orders.Remove(o); }
-            else { throw new Exception("Заказ не найден!"); }
+            else { throw new Exception("Заказ не найден! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public Order Find(int id)
@@ -84,7 +82,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -106,7 +104,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -128,7 +126,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

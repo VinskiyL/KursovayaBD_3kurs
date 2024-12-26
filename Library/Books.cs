@@ -19,7 +19,7 @@ namespace Library
         {
             Book book = Find(index);
             if (book != null) { books.Remove(book); }
-            else { throw new Exception("Книга не найдена!"); }
+            else { throw new Exception("Книга не найдена! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public Book Find(int index)
@@ -62,7 +62,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -84,7 +84,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -106,7 +106,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

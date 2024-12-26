@@ -53,7 +53,7 @@ namespace Library
                     Reader.Enabled = false;
                     for (int i = 0; i < orders.orders.Count; i++)
                     {
-                        if (orders.FindReader(id_))
+                        if (orders.FindReader(id_, orders.orders[i].id_))
                         {
                             var reader = readers.Find(orders.orders[i].reader);
                             var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
@@ -94,7 +94,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
 
                 // Запрос подтверждения у пользователя
@@ -113,7 +113,7 @@ namespace Library
                 else
                 {
                     // Пользователь отменил действие
-                    MessageBox.Show("Удаление отменено.");
+                    MessageBox.Show("Удаление отменено");
                 }
             }
             catch (Exception ex)
@@ -139,7 +139,7 @@ namespace Library
             {
                 for (int i = 0; i < orders.orders.Count; i++)
                 {
-                    if (orders.FindReader(id_))
+                    if (orders.FindReader(id_, orders.orders[i].id_))
                     {
                         var reader = readers.Find(orders.orders[i].reader);
                         var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
@@ -156,7 +156,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Order_form form = new Order_form(select, orders);
                 form.DataUpdated += DataUpdated;
@@ -174,7 +174,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Order order = orders.Find(select);
                 Readers_form form = new Readers_form(order.reader);

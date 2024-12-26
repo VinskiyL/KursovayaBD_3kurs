@@ -88,7 +88,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Reader_form form = new Reader_form(select, readers);
                 form.DataUpdated += DataUpdated;
@@ -140,7 +140,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
 
                 // Запрос подтверждения у пользователя
@@ -159,7 +159,7 @@ namespace Library
                 else
                 {
                     // Пользователь отменил действие
-                    MessageBox.Show("Удаление отменено.");
+                    MessageBox.Show("Удаление отменено");
                 }
             }
             catch (Exception ex)
@@ -174,7 +174,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Bookings_form form = new Bookings_form(select);
                 form.Show();
@@ -191,7 +191,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Orders_form form = new Orders_form(select);
                 form.Show();

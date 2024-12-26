@@ -294,25 +294,25 @@ namespace Library
             }
             else if (!DateTime.TryParseExact(birthday.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
-                MessageBox.Show("Дата имеет неверный формат!");
+                MessageBox.Show("Дата имеет неверный формат!  Напишите дату в формате гггг-мм-дд");
                 birthday.Focus();
                 return true;
             }
             else if (!DateTime.TryParseExact(date_issue.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
-                MessageBox.Show("Дата имеет неверный формат!");
+                MessageBox.Show("Дата имеет неверный формат!  Напишите дату в формате гггг-мм-дд");
                 date_issue.Focus();
                 return true;
             }
             else if (!DateTime.TryParseExact(consists_of.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
-                MessageBox.Show("Дата имеет неверный формат!");
+                MessageBox.Show("Дата имеет неверный формат!  Напишите дату в формате гггг-мм-дд");
                 consists_of.Focus();
                 return true;
             }
             else if (!DateTime.TryParseExact(re_registration.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _) && re_registration.Text.Length > 0)
             {
-                MessageBox.Show("Дата имеет неверный формат!");
+                MessageBox.Show("Дата имеет неверный формат! Напишите дату в формате гггг-мм-дд");
                 re_registration.Focus();
                 return true;
             }
@@ -439,7 +439,7 @@ namespace Library
 
         private void issued_by_whom_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }
@@ -518,7 +518,8 @@ namespace Library
         {
             Users users = new Users();
             users.Add();
-            string name = readers.readers[select].surname_ + select.ToString();
+            Reader reader = readers.Find(select);
+            string name = reader.surname_ + select.ToString();
             PasswordHasher hasher = new PasswordHasher();
             MessageBox.Show("Имя пользователя: " + name);
             if (select != 0)

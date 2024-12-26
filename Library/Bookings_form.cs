@@ -28,7 +28,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Booking booking = bookings.Find(select);
                 Readers_form form = new Readers_form(booking.reader);
@@ -51,7 +51,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Booking_form form = new Booking_form(select, bookings);
                 form.DataUpdated += DataUpdated;
@@ -83,7 +83,7 @@ namespace Library
             {
                 for (int i = 0; i < bookings.bookings.Count; i++)
                 {
-                    if (bookings.FindReader(id_))
+                    if (bookings.FindReader(id_, bookings.bookings[i].id_))
                     {
                         var book = books.Find(bookings.bookings[i].index_);
                         var title_ = book.title_;
@@ -112,7 +112,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
 
                 // Запрос подтверждения у пользователя
@@ -131,7 +131,7 @@ namespace Library
                 else
                 {
                     // Пользователь отменил действие
-                    MessageBox.Show("Удаление отменено.");
+                    MessageBox.Show("Удаление отменено");
                 }
             }
             catch (Exception ex)
@@ -177,11 +177,11 @@ namespace Library
                     Reader.Enabled = false;
                     for (int i = 0; i < bookings.bookings.Count; i++)
                     {
-                        if (bookings.FindReader(id_))
+                        if (bookings.FindReader(id_, bookings.bookings[i].id_))
                         {
                             var book = books.Find(bookings.bookings[i].index_);
                             var title_ = book.title_;
-                            var reader = readers.Find(bookings.bookings[i].reader);
+                            var reader = readers.Find(id_);
                             var fio_ = reader.surname_ + " " + reader.name_ + " " + reader.patronymic_ ?? string.Empty;
                             var Value1 = bookings.bookings[i].issued ? bookings.bookings[i].issue.ToString() : "";
                             var Value2 = bookings.bookings[i].returned ? bookings.bookings[i].return_.ToString() : "";

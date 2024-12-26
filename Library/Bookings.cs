@@ -35,7 +35,7 @@ namespace Library
         {
             Booking b = Find(id);
             if (b != null) { bookings.Remove(b); }
-            else { throw new Exception("Бронь не найдена!"); }
+            else { throw new Exception("Бронь не найдена! Для решения этой проблемы свяжитесь со специалистом"); }
         }
 
         public Booking Find(int id)
@@ -44,9 +44,9 @@ namespace Library
             return booking;
         }
 
-        public bool FindReader(int reader)
+        public bool FindReader(int reader, int id)
         {
-            return bookings.Any(item => item.reader == reader);
+            return bookings.Any(item => item.reader == reader && item.id_ == id);
         }
 
         public void Add()
@@ -82,7 +82,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не удалена!");
+                        throw new Exception("Запись не удалена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -104,7 +104,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не изменена!");
+                        throw new Exception("Запись не изменена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 
@@ -128,7 +128,7 @@ namespace Library
 
                     if (rowsAffected == 0)
                     {
-                        throw new Exception("Запись не добавлена!");
+                        throw new Exception("Запись не добавлена! Для решения этой проблемы свяжитесь со специалистом");
                     }
                 }
 

@@ -67,7 +67,7 @@ namespace Library
                 quantity.MaxLength = 1;
                 date_publication.MaxLength = 4;
             }
-            catch(Exception ex) { throw new Exception(ex.Message); }
+            catch(Exception ex) { throw new Exception(ex.Message + "\nДля решения этой проблемы свяжитесь со специалистом"); }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Library
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\nДля решения этой проблемы свяжитесь со специалистом");
             }
         }
 
@@ -139,7 +139,7 @@ namespace Library
                     if (fiol[0] != reader.surname_ || fiol[1] != reader.name_)
                     {
                         Reader reader1 = readers.readers.FirstOrDefault(r => r.surname_ == fiol[0] && r.name_ == fiol[1]);
-                        if (reader1 == null) { throw new Exception("Читателя с таким ФИО не существует"); }
+                        if (reader1 == null) { throw new Exception("Читателя с таким ФИО не существует! Пожалуйста выберите ФИО из списка читателей"); }
                         set.Add("reader_id = " + reader1.id_);
                         order.reader = reader1.id_;
                     }
@@ -164,7 +164,7 @@ namespace Library
                     int quantity_ = int.Parse(quantity.Text);
                     string[] fiol = fio.Text.Split(' ');
                     Reader reader1 = readers.readers.FirstOrDefault(r1 => r1.surname_ == fiol[0] && r1.name_ == fiol[1]);
-                    if (reader1 == null) { throw new Exception("Читателя с таким ФИО не существует"); }
+                    if (reader1 == null) { throw new Exception("Читателя с таким ФИО не существует! Пожалуйста выберите ФИО из списка читателей"); }
                     int reader_ = reader1.id_;
                     string surname = author_surname.Text;
                     string name = author_name.Text;
@@ -226,7 +226,7 @@ namespace Library
             }
             else if (!IsValidFIO(fio.Text))
             {
-                MessageBox.Show("Формат ФИО неверен! Пожалуйста, введите фамилию, имя и отчество через пробел.");
+                MessageBox.Show("Формат ФИО неверен! Пожалуйста, введите фамилию, имя и отчество через пробел");
                 fio.Focus();
                 return true;
             }

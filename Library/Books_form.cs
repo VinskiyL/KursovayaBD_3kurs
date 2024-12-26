@@ -80,7 +80,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Book_form form = new Book_form(select, books);
                 form.DataUpdated += DataUpdated;
@@ -220,7 +220,7 @@ namespace Library
                     {
                         if (select == 0)
                         {
-                            throw new Exception("Строка не выбрана");
+                            throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                         }
 
                         // Запрос подтверждения у пользователя
@@ -246,7 +246,7 @@ namespace Library
                     {
                         if (select == 0)
                         {
-                            throw new Exception("Строка не выбрана");
+                            throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                         }
                         a_b.DelDb(id, select);
                         DataUpdated();
@@ -256,7 +256,7 @@ namespace Library
                 {
                     if (select == 0)
                     {
-                        throw new Exception("Строка не выбрана");
+                        throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                     }
 
                     // Запрос подтверждения у пользователя
@@ -275,7 +275,7 @@ namespace Library
                     else
                     {
                         // Пользователь отменил действие
-                        MessageBox.Show("Удаление отменено.");
+                        MessageBox.Show("Удаление отменено");
                     }
                 }
             }
@@ -291,7 +291,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Authors_form form = new Authors_form(select);
                 form.Show();

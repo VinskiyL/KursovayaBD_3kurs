@@ -251,7 +251,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Booking_form";
-            this.Text = "Бронирование";
+            this.Text = "Бронь";
             this.Load += new System.EventHandler(this.Booking_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

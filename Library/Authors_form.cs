@@ -79,7 +79,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Author_form form = new Author_form(select, authors);
                 form.DataUpdated += DataUpdated;
@@ -124,7 +124,7 @@ namespace Library
                 if (result == DialogResult.Yes)
                 {
                     textBox2.Text = "Список авторов, не принадлежащих данной книге";
-                    textBox1.Text = "Выберите автора из списка ниже и нажмите Enter для добавления.";
+                    textBox1.Text = "Выберите автора из списка ниже и нажмите Enter для добавления";
                     Update.Enabled = false;
                     Insert.Enabled = false;
                     Delete.Enabled = false;
@@ -164,12 +164,12 @@ namespace Library
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Автор с идентификатором " + authorNumber + " был ранее добавлен данной книге");
+                                        MessageBox.Show("Этот автор был ранее добавлен данной книге! Для решения этой проблемы свяжитесь со специалистом");
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Автора с идентификатором " + authorNumber + " не существует");
+                                    MessageBox.Show("Такого автора не существует! Для решения этой проблемы свяжитесь со специалистом");
                                 }
 
                                 // Обновление текста и включение кнопок
@@ -215,7 +215,7 @@ namespace Library
                     {
                         if (select == 0)
                         {
-                            throw new Exception("Строка не выбрана");
+                            throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                         }
 
                         // Запрос подтверждения у пользователя
@@ -234,14 +234,14 @@ namespace Library
                         else
                         {
                             // Пользователь отменил действие
-                            MessageBox.Show("Удаление отменено.");
+                            MessageBox.Show("Удаление отменено");
                         }
                     }
                     else if (result == DialogResult.Yes)
                     {
                         if (select == 0)
                         {
-                            throw new Exception("Строка не выбрана");
+                            throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                         }
                         a_b.DelDb(select, index);
                         DataUpdated();
@@ -251,7 +251,7 @@ namespace Library
                 {
                     if (select == 0)
                     {
-                        throw new Exception("Строка не выбрана");
+                        throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                     }
 
                     // Запрос подтверждения у пользователя
@@ -270,7 +270,7 @@ namespace Library
                     else
                     {
                         // Пользователь отменил действие
-                        MessageBox.Show("Удаление отменено.");
+                        MessageBox.Show("Удаление отменено");
                     }
                 }
             }
@@ -286,7 +286,7 @@ namespace Library
             {
                 if (select == 0)
                 {
-                    throw new Exception("Строка не выбрана");
+                    throw new Exception("Строка не выбрана! Пожалуйста нажмите на нужную строку");
                 }
                 Books_form form = new Books_form(select);
                 form.Show();
